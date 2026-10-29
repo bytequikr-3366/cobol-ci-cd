@@ -4,6 +4,6 @@
       DATA DIVISION.
 
       PROCEDURE DIVISION.
-          DISPLAY "Hello Test from COBOL CI/CD Pipeline!".
+          DISPLAY "Hello Test new from COBOL CI/CD Pipeline!".
           STOP RUN.
 
