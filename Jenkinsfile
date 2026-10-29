@@ -9,12 +9,17 @@ pipeline {
            }
        }
 
+       stage('Stop Old Container') {
+           steps {
+               sh 'docker rm -f cobol-container || true'
+           }
+       }
+
        stage('Run Container') {
            steps {
-               sh 'docker run --rm cobol-app'
+               sh 'docker run -d -p 8081:8081 --name cobol-container cobol-app'
            }
        }
 
    }
 }
-
