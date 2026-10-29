@@ -2,13 +2,19 @@ pipeline {
    agent any
 
    stages {
-       stage('Build COBOL') {
+
+       stage('Build Docker Image') {
            steps {
-               sh '''
-               chmod +x build.sh
-               ./build.sh
-               '''
+               sh 'docker build -t cobol-app .'
            }
        }
+
+       stage('Run Container') {
+           steps {
+               sh 'docker run --rm cobol-app'
+           }
+       }
+
    }
 }
+
